@@ -43,8 +43,7 @@ const updateflag = (element) => {
 
 };
 
-btn.addEventListener("click" , async (evt) => {
-    evt.preventDefault();
+const updateExchangeRate = async () => {
     let amount = document.querySelector(".amount input");
     let amtval = amount.value;
     // console.log(amtval);
@@ -66,7 +65,15 @@ btn.addEventListener("click" , async (evt) => {
     let finalAmount = amtval * rate; 
     // msg.innerText = `1USD = 80INR` want t write like this 
     msg.innerText = `${amtval} ${fromCurr.value} = ${finalAmount} ${toCurr.value}`;
+};
 
+btn.addEventListener("click" , (evt) => {
+    evt.preventDefault();
+    updateExchangeRate();
+});
+
+window.addEventListener("load", () => {
+    updateExchangeRate();
 });
 
 
